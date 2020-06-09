@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- This style sheet is taken from  https://www.w3schools.com/howto/howto_js_tabs.asp -->
+        <link href="styles/style.css" rel="stylesheet" type="text/css">
+
+        <title>Hole Foods</title>
+    </head>
+
+    <body>
+        
+        <a id="hamburgerMenu" onclick="openNav()">&equiv;</a>
+        <h1 style="text-align: center;">Hole Foods</h1>
+        
+        <center>
+            <h2 class="welcomePage">Welcome to Hole Foods!</h2>
+            <p class="welcomePage">Press the menu button on the top-left hand side to begin.</p>
+        </center>
+
+        <!-- NEW NAVIGATION -->
+
+        <div id="menuSideNav" class="sideNav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&#215;</a>
+            <a class="tablinks" onclick="openInfo(event, 'Client')">Client Dietary Restrictions</a>
+            <a class="tablinks" onclick="openInfo(event, 'Products')">List of Products</a>
+            <a class="tablinks" onclick="openInfo(event, 'Cart')">Cart</a>
+        </div>
+
+        <!-- Tab content -->
+        <div id="Client" class="tabcontent">
+            <h3>Client Information</h3>
+            <p>Tell us a bit about you.</p>
+                <p>Please select your dietary preference(s):</p>
+                <br>
+                <form>
+                    <input type="checkbox" name="Vegetarian" id="Vegetarian">Vegetarian</input>
+                    <input type="checkbox" name="GlutenFree" id="GlutenFree">Gluten-Free</input>
+                    <input type="checkbox" name="Organic" id="Organic">Organic</input>  
+                </form>
+                <br>
+                <button id="viewProdListButton" onclick="populateListProductChoices();openInfo(event, 'Products')">View product list</button>
+        </div>
+
+        <div id="Products" class="tabcontent">
+            <h3>Your targeted products</h3>
+            <p>We preselected products based on your dietary preference(s).</p>
+                <p>Choose items to buy:</p>
+
+                <button class="accordion">Vegetables</button>
+                <div id="vegetables" class="panel"></div>
+
+                <button class="accordion">Fruits</button>
+                <div id="fruits" class="panel"></div>
+
+                <button class="accordion">Dairy Products</button>
+                <div id="dairyProducts" class="panel"></div>
+
+                <button class="accordion">Meats</button>
+                <div id="meats" class="panel"></div>
+
+                <button class="accordion">Cooking Products</button>
+                <div id="cookingProducts" class="panel"></div>
+
+                <div id="displayProduct"></div>
+                <button id="addCart" type="button" class="block" onclick="selectedItems();openInfo(event, 'Cart')">
+                    Add selected items to your cart.
+                </button>
+        </div>
+
+        <div id="Cart" class="tabcontent">
+            <h3>Cart</h3>
+            <p>Here are the products currently in your cart.</p>
+            <div id="displayCart"></div>
+        </div>
+
+        <script src="scripts/groceries.js"></script>
+        <script src="scripts/main.js"></script>
+
+    </body>
+
+    <footer>Website designed by Milad Rezaee</footer>
+
+</html>
